@@ -1,0 +1,35 @@
+---
+import { Font } from "astro:assets"
+import { ClientRouter } from "astro:transitions"
+import "@/styles/global.css"
+
+const { title, description } = Astro.props || {
+    title: "Jabones Esencia Serena",
+    description: ""
+}
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+
+        <ClientRouter />
+        <Font cssVariable="--font-albert-sans" preload />
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
+
+<style>
+    html,
+    body {
+        font-family: var(--font-albert-sans), sans-serif;
+    }
+</style>
