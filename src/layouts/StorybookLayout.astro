@@ -2,11 +2,21 @@
 import { Font } from "astro:assets"
 import { ClientRouter } from "astro:transitions"
 import "@/styles/global.css"
+import PaddingWrapper from "@components/common/PaddingWrapper.astro"
+import Link from "@components/common/Link.astro"
 
 const { title, description } = Astro.props || {
     title: "Jabones Esencia Serena",
-    description: ""
+    description: "",
 }
+
+const currentPath = Astro.url.pathname
+const routs = [
+    { href: "/storybook", label: "Títulos" },
+    { href: "/storybook/parrafos", label: "Párrafos" },
+    { href: "/storybook/botones", label: "Botones" },
+    { href: "/storybook/enlaces", label: "Enlaces" },
+]
 ---
 
 <!doctype html>
@@ -22,7 +32,19 @@ const { title, description } = Astro.props || {
         <ClientRouter />
         <Font cssVariable="--font-albert-sans" preload />
     </head>
-    <body>
+    <body class="bg-foreground-50">
+        <PaddingWrapper>
+            <nav class="flex gap-6 flex-wrap justify-center p-4 bg-primary-200 rounded-lg">
+                {
+                    routs.map((rout) => (
+                        <Link href={rout.href} class="text-p1" type={currentPath === rout.href ? "secondary" : "primary"}>
+                            {rout.label}
+                        </Link>
+                    ))
+                }
+            </nav>
+        </PaddingWrapper>
+
         <slot />
     </body>
 </html>

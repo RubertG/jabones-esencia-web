@@ -47,3 +47,89 @@
     --color-foreground-50: #fefaf6;
     --color-foreground-100: #fdf4e9;
 }
+
+@layer utilities {
+    .text-p1 {
+        @apply text-base leading-relaxed;
+    }
+
+    .text-p2 {
+        @apply text-sm leading-relaxed;
+    }
+
+    .text-p3 {
+        @apply text-xs leading-relaxed;
+    }
+    
+    .text-p1-dark {
+        @apply text-base text-word-900 leading-relaxed;
+    }
+
+    .text-p2-dark {
+        @apply text-sm text-word-900 leading-relaxed;
+    }
+
+    .text-p3-dark {
+        @apply text-xs text-word-900 leading-relaxed;
+    }
+    
+    .text-p1-light {
+        @apply text-base text-word-50 leading-relaxed;
+    }
+
+    .text-p2-light {
+        @apply text-sm text-word-50 leading-relaxed;
+    }
+
+    .text-p3-light {
+        @apply text-xs text-word-50 leading-relaxed;
+    }
+    
+    .text-h1 {
+        @apply text-4xl font-extrabold uppercase tracking-wide;
+    }
+    
+    .text-h2 {
+        @apply text-3xl font-bold uppercase tracking-wide;
+    }
+    
+    .text-h3 {
+        @apply text-2xl font-bold uppercase tracking-wide;
+    }
+
+    .text-h4 {
+        @apply text-xl font-bold uppercase tracking-wide;
+    }
+    
+    .text-h1-dark {
+        @apply text-4xl font-extrabold uppercase tracking-wide text-word-950;
+    }
+    
+    .text-h2-dark {
+        @apply text-3xl font-bold uppercase tracking-wide text-word-950;
+    }
+    
+    .text-h3-dark {
+        @apply text-2xl font-bold uppercase tracking-wide text-word-900;
+    }
+
+    .text-h4-dark {
+        @apply text-xl font-bold uppercase tracking-wide text-word-900;
+    }
+    
+    .text-h1-light {
+        @apply text-4xl font-extrabold uppercase tracking-wide text-word-50;
+    }
+    
+    .text-h2-light {
+        @apply text-3xl font-bold uppercase tracking-wide text-word-50;
+    }
+    
+    .text-h3-light {
+        @apply text-2xl font-bold uppercase tracking-wide text-word-50;
+    }
+
+    .text-h4-light {
+        @apply text-xl font-bold uppercase tracking-wide text-word-50;
+    }
+}

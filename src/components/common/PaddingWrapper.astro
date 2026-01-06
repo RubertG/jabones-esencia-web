@@ -1,0 +1,25 @@
+---
+interface Props {
+    class?: string
+    options?: {
+        top?: boolean
+        bottom?: boolean
+        left?: boolean
+        right?: boolean
+        x?: boolean
+        y?: boolean
+    }
+}
+
+const { class: className = "", options = { x: true, y: true } } = Astro.props
+const appliedClasses = [
+    (options.top && !options.y) || options.y ? "pt-4" : "",
+    (options.bottom && !options.y) || options.y ? "pb-4" : "",
+    (options.left && !options.x) || options.x ? "pl-4" : "",
+    (options.right && !options.x) || options.x ? "pr-4" : "",
+].filter(Boolean)
+---
+
+<div class:list={[...appliedClasses, className]}>
+    <slot />
+</div>
