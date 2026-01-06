@@ -1,7 +1,20 @@
 ---
+import Button from "@components/common/Button.vue"
+import PaddingWrapper from "@components/common/PaddingWrapper.astro"
 import StorybookLayout from "@layouts/StorybookLayout.astro"
 ---
 
 <StorybookLayout title="Storybook | Jabones Esencia Serena">
-    <h1>Storybook Page</h1>
+    <PaddingWrapper class="space-y-4 flex flex-col items-start">
+        <Button>Botón Primario</Button>
+        <Button typeStyle="primary-outlined">Botón Primario outline</Button>
+        <Button typeStyle="secondary">Botón Secundario</Button>
+        <Button typeStyle="secondary-outlined">Botón Secundario outline</Button>
+
+        <Button size="sm">Botón Pequeño</Button>
+        <Button size="md">Botón Mediano</Button>
+        <Button size="lg">Botón Grande</Button>
+
+        <Button href="/storybook" disabled>Botón como Enlace</Button>
+    </PaddingWrapper>
 </StorybookLayout>
