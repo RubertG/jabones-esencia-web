@@ -31,11 +31,13 @@ const classes = computed(() => {
         lg: "px-3.5 py-2 text-lg",
     }
 
+    const hoverable = !props.disabled
+
     const typeStyleClasses = {
-        primary: "bg-primary-600 text-white hover:bg-primary-700 hover:shadow-[0_0_12px_var(--color-primary-600)] focus:ring-primary-500",
-        secondary: "bg-secondary-500 text-white hover:bg-secondary-600 hover:shadow-[0_0_12px_var(--color-secondary-500)] focus:ring-secondary-400",
-        "primary-outlined": "border border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500",
-        "secondary-outlined": "border border-secondary-600 text-secondary-600 hover:bg-secondary-50 focus:ring-secondary-500",
+        primary: `bg-primary-600 text-white ${hoverable ? "hover:bg-primary-700 hover:shadow-[0_0_12px_var(--color-primary-600)]" : ""} focus:ring-primary-500`,
+        secondary: `bg-secondary-500 text-white ${hoverable ? "hover:bg-secondary-600 hover:shadow-[0_0_12px_var(--color-secondary-500)]" : ""} focus:ring-secondary-400`,
+        "primary-outlined": `border border-primary-600 text-primary-600 ${hoverable ? "hover:bg-primary-100" : ""} focus:ring-primary-500`,
+        "secondary-outlined": `border border-secondary-600 text-secondary-600 ${hoverable ? "hover:bg-secondary-50" : ""} focus:ring-secondary-500`,
     }
 
     return [
@@ -54,7 +56,7 @@ const handleClick = (event: MouseEvent) => {
 </script>
 
 <template>
-    <button v-if="!props.href" :class="classes" :type="props.type" :disabled="props.disabled" @click="handleClick">
+    <button v-if="!props.href" :class="classes" :type="props.type" :disabled="props.disabled" :aria-disabled="props.disabled" @click="handleClick">
         <slot></slot>
     </button>
     <a v-else :href="props.disabled ? undefined : props.href" :aria-disabled="props.disabled" :class="classes" @click="handleClick" :target="props.target">
