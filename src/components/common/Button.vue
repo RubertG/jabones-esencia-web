@@ -26,18 +26,20 @@ const classes = computed(() => {
     const baseClasses = "font-medium rounded-lg cursor-pointer transition-all duration-300"
 
     const sizeClasses = {
-        sm: "px-2.5 py-1 text-sm",
-        md: "px-3 py-1.5 text-base",
-        lg: "px-3.5 py-2 text-lg",
+        sm: "px-3 py-1.5 text-sm",
+        md: "px-3.5 py-2 text-base",
+        lg: "px-4 py-3 text-lg",
     }
 
     const hoverable = !props.disabled
 
+    const commonTypeClasses = "flex items-center justify-center gap-2"
+
     const typeStyleClasses = {
-        primary: `bg-primary-600 text-white ${hoverable ? "hover:bg-primary-700 hover:shadow-[0_0_12px_var(--color-primary-600)]" : ""} focus:ring-primary-500`,
-        secondary: `bg-secondary-500 text-white ${hoverable ? "hover:bg-secondary-600 hover:shadow-[0_0_12px_var(--color-secondary-500)]" : ""} focus:ring-secondary-400`,
-        "primary-outlined": `border border-primary-600 text-primary-600 ${hoverable ? "hover:bg-primary-100" : ""} focus:ring-primary-500`,
-        "secondary-outlined": `border border-secondary-600 text-secondary-600 ${hoverable ? "hover:bg-secondary-50" : ""} focus:ring-secondary-500`,
+        primary: `${commonTypeClasses} bg-primary-600 text-white ${hoverable ? "hover:bg-primary-700 hover:shadow-[0_0_12px_var(--color-primary-600)]" : ""} focus:ring-primary-500`,
+        secondary: `${commonTypeClasses} bg-secondary-500 text-white ${hoverable ? "hover:bg-secondary-600 hover:shadow-[0_0_12px_var(--color-secondary-500)]" : ""} focus:ring-secondary-400`,
+        "primary-outlined": `${commonTypeClasses} border border-primary-600 text-primary-600 ${hoverable ? "hover:bg-primary-100" : ""} focus:ring-primary-500`,
+        "secondary-outlined": `${commonTypeClasses} border border-secondary-600 text-secondary-600 ${hoverable ? "hover:bg-secondary-50" : ""} focus:ring-secondary-500`,
     }
 
     return [

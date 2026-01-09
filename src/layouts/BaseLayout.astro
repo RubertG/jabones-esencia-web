@@ -1,7 +1,9 @@
 ---
 import { Font } from "astro:assets"
 import { ClientRouter } from "astro:transitions"
+import Footer from "@components/core/Footer.astro"
 import "@/styles/global.css"
+import Nav from "@components/core/Nav.vue"
 
 const { title, description } = Astro.props || {
     title: "Jabones Esencia Serena",
@@ -23,7 +25,11 @@ const { title, description } = Astro.props || {
         <Font cssVariable="--font-albert-sans" preload />
     </head>
     <body class="bg-foreground-50">
-        <slot />
+        <div class="grid min-h-screen grid-rows-[auto_1fr_auto]">
+            <Nav client:only="vue" pathName={Astro.url.pathname} />
+            <slot />
+            <Footer />
+        </div>
     </body>
 </html>
 
