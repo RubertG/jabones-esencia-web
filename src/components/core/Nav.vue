@@ -3,9 +3,8 @@ import { ref } from "vue"
 import NavButton from "./NavButton.vue"
 import Brand from "@assets/brand-esencia-serena.webp"
 import Link from "@components/common/Link.vue"
-import { Headset, ShoppingCart, X } from "lucide-vue-next"
+import { ShoppingCart } from "lucide-vue-next"
 import { mdAndUp } from "@/utils/common/breakpoints"
-import Button from "@components/common/Button.vue"
 import NavContentMobile from "./NavContentMobile.vue"
 
 interface Props {
