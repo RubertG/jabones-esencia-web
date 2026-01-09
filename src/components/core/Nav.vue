@@ -27,14 +27,14 @@ const links = [
 </script>
 
 <template>
-    <nav v-bind="$attrs" class="bg-primary-100 w-full py-2.5">
+    <nav v-bind="$attrs" class="bg-primary-100 w-full py-4">
         <div class="pl-3 pr-4 2xl:px-0 gap-4 w-full md:gap-14 max-w-7xl mx-auto flex items-center justify-between">
             <!-- Cart -->
-            <ShoppingCart v-if="!mdAndUp" class="h-6 w-6 text-word-900" />
+            <ShoppingCart v-if="!mdAndUp" class="h-5 w-5 text-word-900" />
 
             <!-- Brand -->
             <a href="/" class="shrink-0 grow-0">
-                <img :src="Brand.src" alt="Jabones Esencia Serena Brand" class="h-12 w-auto" />
+                <img :src="Brand.src" alt="Jabones Esencia Serena Brand" class="h-8 w-auto" />
             </a>
 
             <!-- open/close button -->
@@ -58,7 +58,7 @@ const links = [
             </ul>
 
             <!-- Cart pc -->
-            <ShoppingCart v-if="mdAndUp" class="h-6 w-6 shrink-0 grow-0 text-word-900 transition-transform duration-300 cursor-pointer hover:scale-125" />
+            <ShoppingCart v-if="mdAndUp" class="h-5 w-5 shrink-0 grow-0 text-word-900 transition-transform duration-300 cursor-pointer hover:scale-125" />
         </div>
     </nav>
 

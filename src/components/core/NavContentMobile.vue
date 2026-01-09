@@ -21,7 +21,7 @@ defineEmits<{
         :class="{ 'translate-x-0': isOpen, 'translate-x-full': !isOpen }"
     >
         <div class="flex justify-between items-center">
-            <img :src="Brand.src" alt="Jabones Esencia Serena Brand" class="h-10 w-auto" />
+            <img :src="Brand.src" alt="Jabones Esencia Serena Brand" class="h-8 w-auto" />
 
             <X @click="$emit('close')" class="h-7 w-7 cursor-pointer" />
         </div>
