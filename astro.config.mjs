@@ -7,7 +7,6 @@ import vue from "@astrojs/vue"
 
 import vercel from "@astrojs/vercel"
 
-// https://astro.build/config
 export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
@@ -25,6 +24,6 @@ export default defineConfig({
         ],
     },
 
+    adapter: vercel(),  
     integrations: [vue()],
-    adapter: vercel(),
 })

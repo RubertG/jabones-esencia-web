@@ -20,7 +20,7 @@ defineEmits<{
         class="fixed z-20 top-0 right-0 w-full h-dvh p-4 bg-foreground-50 max-w-sm duration-300 ease-in-out transition-transform grid grid-rows-[auto_1fr_auto]"
         :class="{ 'translate-x-0': isOpen, 'translate-x-full': !isOpen }"
     >
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center border-b border-primary-200 pb-4">
             <img :src="Brand.src" alt="Jabones Esencia Serena Brand" class="h-8 w-auto" />
 
             <X @click="$emit('close')" class="h-7 w-7 cursor-pointer" />
@@ -42,7 +42,7 @@ defineEmits<{
             </li>
         </ul>
 
-        <footer class="space-y-3">
+        <footer class="space-y-3 border-t border-primary-200 pt-4">
             <p class="text-p2-dark">
                 Somos una tienda de jabones artesanales hechos a mano con ingredientes <strong class="italic">100% naturales</strong>. 🌱💚
             </p>

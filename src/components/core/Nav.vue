@@ -27,10 +27,10 @@ const links = [
 </script>
 
 <template>
-    <nav v-bind="$attrs" class="bg-primary-100 w-full py-4">
-        <div class="pl-3 pr-4 2xl:px-0 gap-4 w-full md:gap-14 max-w-7xl mx-auto flex items-center justify-between">
+    <nav v-bind="$attrs" class="border-b border-primary-200 w-full py-4">
+        <div class="px-3 2xl:px-0 gap-4 w-full md:gap-14 max-w-7xl mx-auto flex items-center justify-between">
             <!-- Cart -->
-            <ShoppingCart v-if="!mdAndUp" class="h-5 w-5 text-word-900" />
+            <ShoppingCart v-show="!mdAndUp" class="h-5 w-5 text-word-900" />
 
             <!-- Brand -->
             <a href="/" class="shrink-0 grow-0">
@@ -38,12 +38,12 @@ const links = [
             </a>
 
             <!-- open/close button -->
-            <div v-if="!mdAndUp" class="flex gap-4 items-center justify-center">
+            <div v-show="!mdAndUp" class="flex gap-4 items-center justify-center">
                 <NavButton :isOpen="isOpen" @toggle="toggleNav" />
             </div>
 
             <!-- Links pc -->
-            <ul v-if="mdAndUp" class="flex justify-end w-full gap-6">
+            <ul v-show="mdAndUp" class="flex justify-end w-full gap-6">
                 <li v-for="link in links" :key="link.name">
                     <Link
                         :type="link.href !== pathName ? 'colorless' : 'primary'"
@@ -58,17 +58,17 @@ const links = [
             </ul>
 
             <!-- Cart pc -->
-            <ShoppingCart v-if="mdAndUp" class="h-5 w-5 shrink-0 grow-0 text-word-900 transition-transform duration-300 cursor-pointer hover:scale-125" />
+            <ShoppingCart v-show="mdAndUp" class="h-5 w-5 shrink-0 grow-0 text-word-900 transition-transform duration-300 cursor-pointer hover:scale-125" />
         </div>
     </nav>
 
     <!-- Background overlay -->
     <Transition name="fade">
-        <div v-if="isOpen && !mdAndUp" class="fixed z-10 top-0 right-0 bg-black/50 backdrop-blur-[2px] w-full h-dvh" @click="toggleNav"></div>
+        <div v-show="isOpen && !mdAndUp" class="fixed z-10 top-0 right-0 bg-black/50 backdrop-blur-[2px] w-full h-dvh" @click="toggleNav"></div>
     </Transition>
 
     <!-- Mobile nav -->
-    <NavContentMobile v-if="!mdAndUp" :is-open="isOpen" @close="toggleNav" :links="links" />
+    <NavContentMobile v-show="!mdAndUp" :is-open="isOpen" @close="toggleNav" :links="links" />
 </template>
 
 <style scoped>

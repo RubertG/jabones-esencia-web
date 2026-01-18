@@ -37,7 +37,7 @@ const routs = [
             <nav class="flex gap-6 flex-wrap justify-center p-4 bg-primary-200 rounded-lg">
                 {
                     routs.map((rout) => (
-                        <Link href={rout.href} class="text-p1" type={currentPath === rout.href ? "secondary" : "primary"}>
+                        <Link href={rout.href} type={currentPath === rout.href ? "secondary" : "primary"}>
                             {rout.label}
                         </Link>
                     ))
