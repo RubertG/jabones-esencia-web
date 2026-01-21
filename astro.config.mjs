@@ -1,17 +1,17 @@
-// @ts-check
-import { defineConfig, fontProviders } from "astro/config"
-
+import { defineConfig, envField, fontProviders } from "astro/config"
 import tailwindcss from "@tailwindcss/vite"
-
 import vue from "@astrojs/vue"
-
 import vercel from "@astrojs/vercel"
 
 export default defineConfig({
+    env: {
+        schema: {
+            PRISMIC_REPO_NAME: envField.string({ context: "server", access: "public", optional: false, url: true })
+        }
+    },
     vite: {
         plugins: [tailwindcss()],
     },
-
     experimental: {
         fonts: [
             {
@@ -23,7 +23,6 @@ export default defineConfig({
             },
         ],
     },
-
-    adapter: vercel(),  
+    adapter: vercel(),
     integrations: [vue()],
 })
