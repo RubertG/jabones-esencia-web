@@ -30,10 +30,9 @@ defineEmits<{
             <li v-for="(link, index) in links" :key="link.name">
                 <a
                     :href="link.href"
-                    class="block py-2.5 transition-all duration-300"
+                    class="block py-3 transition-all duration-300"
                     :class="{ 'opacity-100 translate-x-0': isOpen, 'opacity-0 translate-x-10': !isOpen }"
                     :style="{ transitionDelay: isOpen ? index * 0.1 + 0.2 + 's' : '0s' }"
-                    @click="$emit('close')"
                 >
                     <span class="text-3xl text-secondary-800 uppercase tracking-wide italic font-semibold border-b-2 border-secondary-800">
                         {{ link.name }}
