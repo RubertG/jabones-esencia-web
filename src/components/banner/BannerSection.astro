@@ -1,0 +1,16 @@
+---
+import { client } from "@/lib/prismic"
+import type { SlideBanner } from "@/types/banner"
+import Banner from "./Banner.vue"
+
+const response = await client.getAllByType("banner")
+const slides: SlideBanner[] = response.map(({ data }) => ({
+    title: data.title,
+    description: data.description?.[0]?.text,
+    image: data.image?.url,
+    route: data.route,
+    buttonText: data.link_button,
+}))
+---
+
+<Banner slides={slides} />

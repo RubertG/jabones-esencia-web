@@ -4,10 +4,11 @@ import { computed } from "vue"
 interface ButtonProps {
     type?: "button" | "submit" | "reset"
     disabled?: boolean
-    typeStyle?: "primary" | "secondary" | "primary-outlined" | "secondary-outlined"
+    typeStyle?: "primary" | "secondary" | "primary-outlined" | "secondary-outlined" | "foreground"
     size?: "sm" | "md" | "lg"
     href?: string
     target?: "_blank" | "_self" | "_parent" | "_top"
+    class?: string
 }
 const props = withDefaults(defineProps<ButtonProps>(), {
     type: "button",
@@ -16,6 +17,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
     size: "md",
     href: undefined,
     target: "_self",
+    class: ""
 })
 
 const emit = defineEmits<{
@@ -23,7 +25,7 @@ const emit = defineEmits<{
 }>()
 
 const classes = computed(() => {
-    const baseClasses = "font-medium rounded-lg cursor-pointer transition-all duration-300"
+    const baseClasses = `${props.class} font-medium rounded-lg cursor-pointer transition-all duration-300`
 
     const sizeClasses = {
         sm: "px-3 py-1.5 text-sm",
@@ -40,6 +42,7 @@ const classes = computed(() => {
         secondary: `${commonTypeClasses} bg-secondary-500 text-white ${hoverable ? "hover:bg-secondary-600 hover:shadow-[0_0_12px_var(--color-secondary-500)]" : ""} focus:ring-secondary-400`,
         "primary-outlined": `${commonTypeClasses} border border-primary-600 text-primary-600 ${hoverable ? "hover:bg-primary-100" : ""} focus:ring-primary-500`,
         "secondary-outlined": `${commonTypeClasses} border border-secondary-600 text-secondary-600 ${hoverable ? "hover:bg-secondary-50" : ""} focus:ring-secondary-500`,
+        foreground: `${commonTypeClasses} bg-foreground-50 text-word-900 ${hoverable ? "hover:bg-primary-600 hover:text-word-50 hover:shadow-[0_0_12px_var(--color-primary-600)]" : ""} focus:ring-primary-300`
     }
 
     return [

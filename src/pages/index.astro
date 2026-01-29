@@ -1,7 +1,16 @@
 ---
+import BannerSection from "@components/banner/BannerSection.astro"
+import CategoriesSection from "@components/categories/CategoriesSection.astro"
 import BaseLayout from "@layouts/BaseLayout.astro"
+
+export const prerender = true
 ---
 
 <BaseLayout title="Jabones Esencia Serena" description="Productos artesanales para el cuidado de la piel">
-    hola
+    <BannerSection />
+
+    <hr class="w-full border-t border-primary-200" />
+
+    <!-- Categories -->
+    <CategoriesSection className="max-md:px-4 py-8" />
 </BaseLayout>
