@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Brand from "@assets/brand-esencia-serena.webp"
-import Button from "@components/common/Button.vue";
+import Button from "@components/common/Button.vue"
 import { Headset, ShoppingCart, X } from "lucide-vue-next"
 
 interface Props {
@@ -17,10 +17,10 @@ defineEmits<{
 
 <template>
     <div
-        class="fixed z-20 top-0 right-0 w-full h-dvh p-4 bg-foreground-50 max-w-sm duration-300 ease-in-out transition-transform grid grid-rows-[auto_1fr_auto]"
+        class="bg-foreground-50 fixed top-0 right-0 z-20 grid h-dvh w-full max-w-sm grid-rows-[auto_1fr_auto] p-4 transition-transform duration-300 ease-in-out"
         :class="{ 'translate-x-0': isOpen, 'translate-x-full': !isOpen }"
     >
-        <div class="flex justify-between items-center border-b border-primary-200 pb-4">
+        <div class="border-primary-200 flex items-center justify-between border-b pb-4">
             <img :src="Brand.src" alt="Jabones Esencia Serena Brand" class="h-8 w-auto" />
 
             <X @click="$emit('close')" class="h-7 w-7 cursor-pointer" />
@@ -31,17 +31,17 @@ defineEmits<{
                 <a
                     :href="link.href"
                     class="block py-3 transition-all duration-300"
-                    :class="{ 'opacity-100 translate-x-0': isOpen, 'opacity-0 translate-x-10': !isOpen }"
+                    :class="{ 'translate-x-0 opacity-100': isOpen, 'translate-x-10 opacity-0': !isOpen }"
                     :style="{ transitionDelay: isOpen ? index * 0.1 + 0.2 + 's' : '0s' }"
                 >
-                    <span class="text-3xl text-secondary-800 uppercase tracking-wide italic font-semibold border-b-2 border-secondary-800">
+                    <span class="text-secondary-800 border-secondary-800 border-b-2 text-3xl font-semibold tracking-wide uppercase italic">
                         {{ link.name }}
                     </span>
                 </a>
             </li>
         </ul>
 
-        <footer class="space-y-3 border-t border-primary-200 pt-4">
+        <footer class="border-primary-200 space-y-3 border-t pt-4">
             <p class="text-p2-dark">
                 Somos una tienda de jabones artesanales hechos a mano con ingredientes <strong class="italic">100% naturales</strong>. 🌱💚
             </p>

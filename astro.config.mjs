@@ -7,8 +7,8 @@ export default defineConfig({
     output: "server",
     env: {
         schema: {
-            PRISMIC_REPO_NAME: envField.string({ context: "server", access: "public", optional: false, url: true })
-        }
+            PRISMIC_REPO_NAME: envField.string({ context: "server", access: "public", optional: false, url: true }),
+        },
     },
     vite: {
         plugins: [tailwindcss()],

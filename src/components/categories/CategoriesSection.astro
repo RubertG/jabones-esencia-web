@@ -12,7 +12,7 @@ const response = await client.getAllByType("categories")
 ---
 
 <ul class={`${className} flex flex-wrap gap-6 items-center justify-center`}>
-    {response.map(({data: category}) => <CategoryCard name={category.name} img={category.image?.url} link={`/productos?categoria=${category.slug}`} />)}
+    {response.map(({ data: category }) => <CategoryCard name={category.name} img={category.image?.url} link={`/productos?categoria=${category.slug}`} />)}
 
     <CategoryCard name="Todos los productos" img="https://images.prismic.io/esencia-serena/aXrO8gIvOtkhCDdS_todos.png?auto=format,compress" link="/productos" />
 </ul>

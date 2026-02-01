@@ -34,7 +34,7 @@ const routs = [
     </head>
     <body class="bg-foreground-50">
         <PaddingWrapper>
-            <nav class="flex gap-6 flex-wrap justify-center p-4 bg-primary-200 rounded-lg">
+            <nav class="bg-primary-200 flex flex-wrap justify-center gap-6 rounded-lg p-4">
                 {
                     routs.map((rout) => (
                         <Link href={rout.href} type={currentPath === rout.href ? "secondary" : "primary"}>

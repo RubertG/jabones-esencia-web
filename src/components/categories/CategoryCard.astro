@@ -10,16 +10,16 @@ interface Props {
 const { name, img, link } = Astro.props
 ---
 
-<div class="relative w-full max-w-96 aspect-square overflow-hidden rounded-lg group">
-    <img class="w-full h-full object-center object-cover transition-transform duration-500 group-hover:scale-110" src={img} alt={name} />
+<div class="group relative aspect-square w-full max-w-96 overflow-hidden rounded-lg">
+    <img class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110" src={img} alt={name} />
 
-    <div class="absolute bottom-0 left-0 w-full h-full overflow-hidden flex flex-col items-center justify-center group bg-zinc-950/20">
+    <div class="group absolute bottom-0 left-0 flex h-full w-full flex-col items-center justify-center overflow-hidden bg-zinc-950/20">
         <div
-            class="absolute bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 w-0 h-0 rounded-full group-hover:h-[150%] group-hover:w-[150%] bg-zinc-950/20 backdrop-blur-[2px] transition-all duration-500"
+            class="absolute bottom-1/2 left-1/2 h-0 w-0 -translate-x-1/2 translate-y-1/2 rounded-full bg-zinc-950/20 backdrop-blur-[2px] transition-all duration-500 group-hover:h-[150%] group-hover:w-[150%]"
         >
         </div>
 
-        <Button href={link} class="uppercase font-semibold tracking-wide z-10" typeStyle="foreground">
+        <Button href={link} class="z-10 font-semibold tracking-wide uppercase" typeStyle="foreground">
             {name}
         </Button>
     </div>

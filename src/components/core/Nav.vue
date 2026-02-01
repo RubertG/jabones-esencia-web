@@ -27,10 +27,10 @@ const links = [
 </script>
 
 <template>
-    <nav v-bind="$attrs" class="border-b border-primary-200 w-full py-4">
-        <div class="px-3 2xl:px-0 gap-4 w-full md:gap-14 max-w-7xl mx-auto flex items-center justify-between">
+    <nav v-bind="$attrs" class="border-primary-200 w-full border-b py-4">
+        <div class="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-3 md:gap-14 2xl:px-0">
             <!-- Cart -->
-            <ShoppingCart v-show="!mdAndUp" class="h-5 w-5 text-word-900" />
+            <ShoppingCart class="text-word-900 h-5 w-5 md:hidden" />
 
             <!-- Brand -->
             <a href="/" class="shrink-0 grow-0">
@@ -38,18 +38,18 @@ const links = [
             </a>
 
             <!-- open/close button -->
-            <div v-show="!mdAndUp" class="flex gap-4 items-center justify-center">
+            <div class="flex items-center justify-center gap-4 md:hidden">
                 <NavButton :isOpen="isOpen" @toggle="toggleNav" />
             </div>
 
             <!-- Links pc -->
-            <ul v-show="mdAndUp" class="flex justify-end w-full gap-6">
+            <ul class="hidden w-full justify-end gap-6 md:flex">
                 <li v-for="link in links" :key="link.name">
                     <Link
                         :type="link.href !== pathName ? 'colorless' : 'primary'"
                         :decoration-class="link.href !== pathName ? 'bg-word-800' : ''"
                         :href="link.href"
-                        class="uppercase tracking-wide font-semibold"
+                        class="font-semibold tracking-wide uppercase"
                         :class="link.href !== pathName ? 'text-word-800' : ''"
                     >
                         {{ link.name }}
@@ -58,13 +58,13 @@ const links = [
             </ul>
 
             <!-- Cart pc -->
-            <ShoppingCart v-show="mdAndUp" class="h-5 w-5 shrink-0 grow-0 text-word-900 transition-transform duration-300 cursor-pointer hover:scale-125" />
+            <ShoppingCart class="text-word-900 hidden h-5 w-5 shrink-0 grow-0 cursor-pointer transition-transform duration-300 hover:scale-125 md:block" />
         </div>
     </nav>
 
     <!-- Background overlay -->
     <Transition name="fade">
-        <div v-show="isOpen && !mdAndUp" class="fixed z-10 top-0 right-0 bg-black/50 backdrop-blur-[2px] w-full h-dvh" @click="toggleNav"></div>
+        <div v-show="isOpen && !mdAndUp" class="fixed top-0 right-0 z-10 h-dvh w-full bg-black/50 backdrop-blur-[2px]" @click="toggleNav"></div>
     </Transition>
 
     <!-- Mobile nav -->

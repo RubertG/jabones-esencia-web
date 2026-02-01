@@ -9,8 +9,8 @@ const slides: SlideBanner[] = response.map(({ data }) => ({
     description: data.description?.[0]?.text,
     image: data.image?.url,
     route: data.route,
-    buttonText: data.link_button,
+    textButton: data.text_button,
 }))
 ---
 
-<Banner slides={slides} />
+<Banner slides={slides} client:load />
