@@ -1,6 +1,7 @@
 ---
-import BannerSection from "@components/banner/BannerSection.astro"
-import CategoriesSection from "@components/categories/CategoriesSection.astro"
+import BannerSection from "@components/landing/BannerSection.astro"
+import CategoriesSection from "@components/landing/CategoriesSection.astro"
+import MarqueeSection from "@components/landing/MarqueeSection.astro"
 import BaseLayout from "@layouts/BaseLayout.astro"
 
 export const prerender = true
@@ -11,6 +12,9 @@ export const prerender = true
 
     <hr class="border-primary-200 w-full border-t" />
 
-    <!-- Categories -->
-    <CategoriesSection className="py-8 max-md:px-4" />
+    <MarqueeSection className="py-8" />
+
+    <hr class="border-primary-200 w-full border-t" />
+
+    <CategoriesSection className="py-14 max-md:px-4" />
 </BaseLayout>

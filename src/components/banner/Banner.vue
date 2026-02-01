@@ -78,7 +78,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <section class="grid-[auto_1fr] relative grid h-[55vh] max-h-150 w-full overflow-hidden md:h-[75vh]">
+    <section class="grid-[auto_1fr] relative grid h-[60vh] max-h-150 w-full overflow-hidden md:h-[76vh]">
         <BannerSlide :slide="currentSlide" :transitionDuration="props.transitionDuration" />
 
         <SliderControls
