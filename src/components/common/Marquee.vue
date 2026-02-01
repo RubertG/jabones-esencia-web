@@ -32,7 +32,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
     duration: 20,
     direction: "left",
-    pauseOnHover: true,
+    pauseOnHover: false,
     gap: 32,
 })
 

@@ -60,7 +60,7 @@ const props = withDefaults(defineProps<Props>(), {
 /* Content animation */
 .banner-content-enter-active,
 .banner-content-leave-active {
-    transition: all v-bind("props.transitionDuration + 'ms'") ease;
+    transition: all v-bind("(props.transitionDuration - 100) + 'ms'") ease;
 }
 
 .banner-content-enter-from {
