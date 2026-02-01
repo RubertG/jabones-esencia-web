@@ -6,7 +6,7 @@
                 :key="slide.image"
                 :src="slide.image"
                 :alt="`${slide.title} imagen - Jabones Esencia Serena`"
-                class="absolute top-0 left-0 h-full w-full object-cover brightness-80"
+                class="absolute top-0 left-0 h-full w-full object-cover brightness-95"
             />
         </Transition>
 
