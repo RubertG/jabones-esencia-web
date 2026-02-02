@@ -1,7 +1,10 @@
 ---
+import DividingLine from "@components/core/DividingLine.astro"
 import BannerSection from "@components/landing/BannerSection.astro"
+import BestSellers from "@components/landing/BestSellers.astro"
 import CategoriesSection from "@components/landing/CategoriesSection.astro"
 import MarqueeSection from "@components/landing/MarqueeSection.astro"
+import HistorySection from "@components/landing/HistorySection.astro"
 import BaseLayout from "@layouts/BaseLayout.astro"
 
 export const prerender = true
@@ -9,12 +12,16 @@ export const prerender = true
 
 <BaseLayout title="Jabones Esencia Serena" description="Productos artesanales para el cuidado de la piel">
     <BannerSection />
+    <DividingLine />
 
-    <hr class="border-primary-200 w-full border-t" />
+    <MarqueeSection className="py-10" />
+    <DividingLine />
 
-    <MarqueeSection className="py-8" />
+    <BestSellers className="py-14 max-2xl:px-4" />
+    <DividingLine />
 
-    <hr class="border-primary-200 w-full border-t" />
+    <CategoriesSection className="py-14 max-2xl:px-4" />
+    <DividingLine />
 
-    <CategoriesSection className="py-14 max-md:px-4" />
+    <HistorySection className="py-14 max-2xl:px-4" />
 </BaseLayout>

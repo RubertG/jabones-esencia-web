@@ -19,11 +19,11 @@
                 <h2 class="text-secondary-800 text-center text-2xl font-extrabold tracking-wide uppercase md:text-3xl">
                     {{ slide.title }}
                 </h2>
-                <p class="text-word-900 mt-2 text-center text-base md:text-lg">
+                <p class="text-word-900 mt-3 text-center text-base md:text-lg">
                     {{ slide.description }}
                 </p>
 
-                <Button v-if="slide.textButton && slide.route" :href="slide.route" class="mt-5" type-style="secondary">
+                <Button v-if="slide.textButton && slide.route" :href="slide.route" class="mt-5 md:text-lg" type-style="secondary">
                     {{ slide.textButton }}
                 </Button>
             </div>

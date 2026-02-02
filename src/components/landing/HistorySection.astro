@@ -1,0 +1,72 @@
+---
+import Family from "@assets/familia.jpeg"
+import Link from "@components/common/Link.vue"
+import FamilyIcon from "@assets/flia-icono.png"
+import HeartIcon from "@assets/corazon-icono.png"
+import SoapsIcon from "@assets/jabones-icono.png"
+
+interface Props {
+    className?: string
+}
+
+const { className = "" } = Astro.props
+
+const icons = [
+    {
+        icon: FamilyIcon,
+        alt: "Icono de familia - Jabones Esencia Serena",
+        text: "Hecho en familia",
+    },
+    {
+        icon: HeartIcon,
+        alt: "Icono de corazón - Jabones Esencia Serena",
+        text: "Hechos con amor",
+    },
+    {
+        icon: SoapsIcon,
+        alt: "Icono de jabones - Jabones Esencia Serena",
+        text: "Naturales y artesanales",
+    },
+]
+---
+
+<section class={`${className}`}>
+    <h2 class="text-secondary-800 text-center text-3xl font-black tracking-wide uppercase xl:text-4xl">Conócenos más</h2>
+
+    <div class="mt-10 flex flex-col items-center justify-center md:mt-12 md:flex-row md:gap-6 lg:gap-11">
+        <img
+            src={Family.src}
+            alt="Mi familia - Jabones Esencia Serena"
+            class="w-full max-w-96 rounded-lg transition-transform duration-300 hover:scale-105 hover:-rotate-2 md:max-w-90"
+        />
+
+        <div class="text-word-950 mt-6 flex max-w-120 flex-col gap-2.5 md:mt-0 md:max-w-2xl lg:text-lg">
+            <p>
+                <span class="font-bold tracking-wide uppercase">Esencia Serena</span> nace del amor, la memoria y el deseo de crear con propósito.
+            </p>
+            <p>
+                Cada jabón es elaborado en casa, con <span class="font-bold tracking-wide uppercase">ingredientes naturales</span> y con el cuidado de manos que creen
+                en el respeto por la piel y por la naturaleza.
+            </p>
+            <p>
+                Somos una <span class="font-bold tracking-wide uppercase">marca artesanal creada en familia</span>, inspirada en la feminidad, el bienestar y la
+                armonía, donde cada detalle refleja dedicación, conciencia y serenidad.
+            </p>
+
+            <div class="mt-1 flex items-center gap-4 lg:gap-5">
+                {
+                    icons.map(({ icon, alt, text }) => (
+                        <div class="bg-primary-100/80 border-primary-200 flex flex-col items-center gap-1 rounded-lg border p-3 transition-colors hover:border-primary-400">
+                            <img src={icon.src} alt={alt} class="aspect-square h-12 w-12" />
+                            <span class="text-word-900 w-20 text-center text-xs lg:text-sm">{text}</span>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div class="mt-1 w-full">
+                <Link href="/historia" with-icon> Leer más de nuestra historia</Link>
+            </div>
+        </div>
+    </div>
+</section>

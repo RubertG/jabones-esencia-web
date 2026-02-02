@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ExternalLink } from "lucide-vue-next"
 import { computed, useAttrs } from "vue"
 
 interface Props {
@@ -7,6 +8,8 @@ interface Props {
     type?: "primary" | "secondary" | "colorless"
     version?: "light" | "dark"
     decorationClass?: string
+    class?: string
+    withIcon?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -43,7 +46,7 @@ const classes = {
 const textClass = computed(() => (props.type !== "colorless" ? classes[props.type].text[props.version] : ""))
 const decorationClass = computed(() => (props.type !== "colorless" ? classes[props.type].decoration[props.version] : ""))
 
-const anchorClass = computed(() => [textClass.value, "inline-flex relative group", (attrs.class as string) ?? ""].filter(Boolean).join(" "))
+const anchorClass = computed(() => [textClass.value, "inline-flex relative group justify-center items-center gap-1.5", (props.class ?? "")].filter(Boolean).join(" "))
 
 const decoClass = computed(() =>
     [decorationClass.value, "absolute bottom-0 left-0 w-0 h-px group-hover:w-full transition-all rounded-full duration-300", props.decorationClass ?? ""]
@@ -57,6 +60,7 @@ const rel = computed(() => (props.target === "_blank" ? "noopener noreferrer" : 
 <template>
     <a :href="props.href" :target="props.target" :rel="rel" :class="anchorClass">
         <slot />
+        <ExternalLink v-if="props.withIcon" class="h-3 w-3" />
         <span :class="decoClass"></span>
     </a>
 </template>
