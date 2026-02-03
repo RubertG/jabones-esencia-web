@@ -1,7 +1,64 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro"
+import Soap1 from "@assets/about-us/jabon-calendula.jpeg"
+import Soap2 from "@assets/about-us/jabon-curcuma.png"
+import Soap3 from "@assets/about-us/jabon-arroz.jpeg"
 
 export const prerender = true
+const title = "Nuestra Historia - Jabones Esencia Serena"
+const description =
+    "Descubre la historia detrás de Jabones Esencia Serena, una marca familiar dedicada a crear jabones artesanales con amor y propósito. Conoce cómo comenzó nuestro viaje y la inspiración que nos impulsa a ofrecer productos naturales y de alta calidad."
+
+const images = [
+    {
+        src: Soap2.src,
+        alt: "Jabón de cúrcuma - Jabones Esencia Serena",
+        classes: "-rotate-12 -translate-x-2/3",
+    },
+    {
+        src: Soap3.src,
+        alt: "Jabón de arroz - Jabones Esencia Serena",
+        classes: "rotate-3 -translate-x-1/2",
+    },
+    {
+        src: Soap1.src,
+        alt: "Jabón de caléndula - Jabones Esencia Serena",
+        classes: "rotate-9 -translate-x-1/3",
+    },
+]
 ---
 
-<BaseLayout> Historia Page </BaseLayout>
+<BaseLayout title={title} description={description}>
+    <section class="mx-auto max-w-7xl px-4 py-6 md:py-10 lg:py-14 xl:pt-20 2xl:px-0">
+        <h1 class="text-secondary-800 text-center text-3xl font-black tracking-wide uppercase xl:text-4xl block md:hidden">Nuestra Historia</h1>
+
+        <div class="mt-12 flex flex-col items-center gap-12 md:mt-0 md:gap-16 md:flex-row lg:gap-20 xl:justify-between">
+            <div class="relative mx-auto aspect-square w-full max-w-60 md:max-w-40 md:ml-10 lg:ml-20 xl:mx-auto lg:max-w-70 2xl:max-w-80">
+                {
+                    images.map(({ src, alt, classes }, idx) => (
+                        <img
+                            src={src}
+                            alt={alt}
+                            class={`absolute bottom-0 left-1/2 aspect-square w-full rounded-lg object-cover shadow-xl transition-transform duration-300 ${classes} z-${10 + idx} hover:-translate-y-1.5 hover:scale-105`}
+                            style={`z-index: ${10 + idx};`}
+                        />
+                    ))
+                }
+            </div>
+
+            <div class="text-word-950 flex max-w-175 flex-col gap-4 lg:text-lg">
+                <h2 class="text-secondary-800 text-3xl font-black tracking-wide uppercase xl:text-4xl hidden md:block">Nuestra Historia</h2>
+                <p>
+                    <span class="font-bold tracking-wide uppercase">Esencia Serena</span> nace de un corazón lleno de amor, memoria y propósito. Detrás de cada jabón
+                    hay una historia de regreso al origen, de manos que recuerdan lo aprendido en la juventud y de un sueño que nunca dejó de latir.
+                </p>
+
+                <p>
+                    A los 40 años, retomo la esencia de mis primeros pasos en la elaboración de jabones artesanales, una práctica que comenzó como un acto de
+                    cuidado para mi familia y para quienes confiaban en mis fórmulas. Hoy vuelvo a ese camino con más conciencia, más estudio y una motivación
+                    aún más profunda.
+                </p>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

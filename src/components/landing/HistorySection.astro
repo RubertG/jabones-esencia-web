@@ -1,9 +1,9 @@
 ---
-import Family from "@assets/familia.jpeg"
+import Family from "@assets/about-us/familia.jpeg"
 import Link from "@components/common/Link.vue"
-import FamilyIcon from "@assets/flia-icono.png"
-import HeartIcon from "@assets/corazon-icono.png"
-import SoapsIcon from "@assets/jabones-icono.png"
+import FamilyIcon from "@assets/about-us/flia-icono.png"
+import HeartIcon from "@assets/about-us/corazon-icono.png"
+import SoapsIcon from "@assets/about-us/jabones-icono.png"
 
 interface Props {
     className?: string
@@ -30,17 +30,17 @@ const icons = [
 ]
 ---
 
-<section class={`${className}`}>
+<section class={`${className} max-w-7xl mx-auto`}>
     <h2 class="text-secondary-800 text-center text-3xl font-black tracking-wide uppercase xl:text-4xl">Conócenos más</h2>
 
-    <div class="mt-10 flex flex-col items-center justify-center md:mt-12 md:flex-row md:gap-6 lg:mt-14 lg:gap-12 xl:gap-16">
+    <div class="mt-10 flex flex-col items-center justify-center md:mt-12 md:justify-between md:flex-row md:gap-6 lg:mt-14 lg:gap-12">
         <img
             src={Family.src}
             alt="Mi familia - Jabones Esencia Serena"
-            class="w-full max-w-96 rounded-lg transition-transform duration-300 hover:scale-105 hover:-rotate-2 md:max-w-90 lg:max-w-105 lg:-rotate-2"
+            class="w-full max-w-96 rounded-lg transition-transform duration-300 hover:scale-105 hover:-rotate-2 md:max-w-90 lg:max-w-110 lg:-rotate-2"
         />
 
-        <div class="text-word-950 mt-6 flex max-w-120 flex-col gap-2.5 md:mt-0 md:max-w-2xl lg:text-lg">
+        <div class="text-word-950 mt-6 flex max-w-170 flex-col gap-2.5 md:mt-0 md:max-w-3xl lg:text-lg">
             <p>
                 <span class="font-bold tracking-wide uppercase">Esencia Serena</span> nace del amor, la memoria y el deseo de crear con propósito.
             </p>
