@@ -33,7 +33,7 @@ const icons = [
 <section class={`${className}`}>
     <h2 class="text-secondary-800 text-center text-3xl font-black tracking-wide uppercase xl:text-4xl">Conócenos más</h2>
 
-    <div class="mt-10 flex flex-col items-center justify-center md:mt-12 md:flex-row md:gap-6 lg:gap-12 lg:mt-14 xl:gap-16">
+    <div class="mt-10 flex flex-col items-center justify-center md:mt-12 md:flex-row md:gap-6 lg:mt-14 lg:gap-12 xl:gap-16">
         <img
             src={Family.src}
             alt="Mi familia - Jabones Esencia Serena"
@@ -56,7 +56,7 @@ const icons = [
             <div class="mt-1 flex items-center gap-4 lg:gap-5">
                 {
                     icons.map(({ icon, alt, text }) => (
-                        <div class="bg-primary-100/80 border-primary-200 flex flex-col items-center gap-1 rounded-lg border p-3 transition-colors hover:border-primary-400">
+                        <div class="bg-primary-100/80 border-primary-200 hover:border-primary-400 flex flex-col items-center gap-1 rounded-lg border p-3 transition-colors">
                             <img src={icon.src} alt={alt} class="aspect-square h-12 w-12" />
                             <span class="text-word-900 w-20 text-center text-xs lg:text-sm">{text}</span>
                         </div>
