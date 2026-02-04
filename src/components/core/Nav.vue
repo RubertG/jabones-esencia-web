@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
 import NavButton from "./NavButton.vue"
 import Brand from "@assets/brand-esencia-serena.webp"
 import Link from "@components/common/Link.vue"
@@ -7,13 +7,8 @@ import { ShoppingCart } from "lucide-vue-next"
 import { mdAndUp } from "@/utils/common/breakpoints"
 import NavContentMobile from "./NavContentMobile.vue"
 
-interface Props {
-    pathName: string
-}
-
-defineProps<Props>()
-
 const isOpen = ref(false)
+const pathName = ref("")
 
 const toggleNav = () => {
     isOpen.value = !isOpen.value
@@ -24,6 +19,10 @@ const links = [
     { name: "Productos", href: "/productos" },
     { name: "Historia", href: "/historia" },
 ]
+
+onMounted(() => {
+    pathName.value = window.location.pathname
+})
 </script>
 
 <template>

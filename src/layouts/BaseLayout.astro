@@ -26,7 +26,7 @@ const { title, description } = Astro.props || {
     </head>
     <body class="bg-foreground-50">
         <div class="grid min-h-dvh grid-rows-[auto_1fr_auto]">
-            <Nav client:load pathName={Astro.url.pathname} />
+            <Nav client:load />
             <div class="w-full overflow-x-hidden">
                 <slot />
             </div>

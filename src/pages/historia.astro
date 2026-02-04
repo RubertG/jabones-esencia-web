@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro"
 import Soap1 from "@assets/about-us/jabon-calendula.jpeg"
 import Soap2 from "@assets/about-us/jabon-curcuma.png"
 import Soap3 from "@assets/about-us/jabon-arroz.jpeg"
+import Family from "@assets/about-us/familia.jpeg"
 
 export const prerender = true
 const title = "Nuestra Historia - Jabones Esencia Serena"
@@ -29,11 +30,11 @@ const images = [
 ---
 
 <BaseLayout title={title} description={description}>
-    <section class="mx-auto max-w-7xl px-4 py-6 md:py-10 lg:py-14 xl:pt-20 2xl:px-0">
-        <h1 class="text-secondary-800 text-center text-3xl font-black tracking-wide uppercase xl:text-4xl block md:hidden">Nuestra Historia</h1>
+    <section class="mx-auto max-w-7xl px-4 py-10 pb-18 lg:pt-18 lg:pb-24 xl:h-[90vh] xl:max-h-190 xl:pt-6 xl:pb-18 2xl:px-0">
+        <h1 class="text-secondary-800 block text-center text-3xl font-black tracking-wide uppercase md:hidden xl:text-4xl">Nuestra Historia</h1>
 
-        <div class="mt-12 flex flex-col items-center gap-12 md:mt-0 md:gap-16 md:flex-row lg:gap-20 xl:justify-between">
-            <div class="relative mx-auto aspect-square w-full max-w-60 md:max-w-40 md:ml-10 lg:ml-20 xl:mx-auto lg:max-w-70 2xl:max-w-83">
+        <div class="mt-12 flex flex-col items-center gap-12 md:mt-0 md:flex-row md:gap-16 lg:gap-20 xl:h-full xl:items-center xl:justify-between">
+            <div class="relative mx-auto aspect-square w-full max-w-60 md:ml-10 md:max-w-40 lg:ml-20 lg:max-w-70 xl:mx-auto 2xl:max-w-83">
                 {
                     images.map(({ src, alt, classes }, idx) => (
                         <img
@@ -47,7 +48,7 @@ const images = [
             </div>
 
             <div class="text-word-950 flex max-w-175 flex-col gap-4 lg:text-lg">
-                <h2 class="text-secondary-800 text-3xl font-black tracking-wide uppercase xl:text-4xl hidden md:block">Nuestra Historia</h2>
+                <h2 class="text-secondary-800 hidden text-3xl font-black tracking-wide uppercase md:block xl:text-4xl">Nuestra Historia</h2>
                 <p>
                     <span class="font-bold tracking-wide uppercase">Esencia Serena</span> nace de un corazón lleno de amor, memoria y propósito. Detrás de cada jabón
                     hay una historia de regreso al origen, de manos que recuerdan lo aprendido en la juventud y de un sueño que nunca dejó de latir.
@@ -58,6 +59,31 @@ const images = [
                     cuidado para mi familia y para quienes confiaban en mis fórmulas. Hoy vuelvo a ese camino con más conciencia, más estudio y una motivación
                     aún más profunda.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-secondary-600 px-4 py-16 md:py-12 lg:py-18 xl:py-4">
+        <div class="mx-auto max-w-7xl flex flex-col items-center gap-8 lg:gap-14 xl:h-[90vh] xl:max-h-190">
+            <h2 class="text-word-50 text-center text-3xl font-black tracking-wide uppercase xl:text-4xl md:hidden">
+                Con alma y amor
+            </h2>
+
+            <div class="flex flex-col w-full md:flex-row-reverse items-center md:justify-between gap-6 lg:gap-12 xl:h-full xl:items-center">
+                <img src={Family.src} alt="Familia - Jabones Esencia Serena" class="w-full max-w-96 rounded-lg transition-transform duration-300 hover:scale-105 hover:rotate-2 md:max-w-80 lg:max-w-100 xl:max-w-110 2xl:max-w-120 lg:rotate-2" />
+
+                <div class="text-word-50 flex max-w-175 flex-col gap-4 lg:text-lg">
+                    <h2 class="text-word-50 text-3xl font-black tracking-wide uppercase xl:text-4xl hidden md:block">
+                        Con alma y amor
+                    </h2>
+                    <p>
+                        Soy madre de dos hijas maravillosas, esposa, ama de casa y trabajadora.
+                        Ellas son la razón que me impulsa a crear, a reinventarme y a demostrar que siempre es posible empezar de nuevo, con <span class="font-bold tracking-wide uppercase">dedicación y amor</span>.
+                    </p>
+                    <p>
+                        Quiero que mis hijas vean en mí el ejemplo de una mujer que lucha, que se supera y que <span class="font-bold tracking-wide uppercase">construye con sus manos algo verdadero</span>. Cada jabón refleja ese esfuerzo, el respeto por la piel y el compromiso con hacer las cosas bien, desde el origen.
+                    </p>
+                </div>
             </div>
         </div>
     </section>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ExternalLink } from "lucide-vue-next"
-import { computed, useAttrs } from "vue"
+import { computed } from "vue"
 
 interface Props {
     href: string
@@ -17,8 +17,6 @@ const props = withDefaults(defineProps<Props>(), {
     type: "primary",
     version: "dark",
 })
-
-const attrs = useAttrs()
 
 const classes = {
     primary: {
