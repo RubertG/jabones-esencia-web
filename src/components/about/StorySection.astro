@@ -1,0 +1,41 @@
+---
+interface Props {
+    title: string
+    imageSrc: string
+    imageAlt: string
+    bgColor?: "primary" | "secondary"
+    imagePosition?: "left" | "right"
+    maxHeight?: "190" | "198"
+}
+
+const { title, imageSrc, imageAlt, bgColor = "primary", imagePosition = "left", maxHeight = "190" } = Astro.props
+
+const sectionBg = bgColor === "secondary" ? "bg-secondary-600" : ""
+const textColor = bgColor === "secondary" ? "text-word-50" : "text-word-950"
+const titleColor = bgColor === "secondary" ? "text-word-50" : "text-secondary-800"
+const flexDirection = imagePosition === "right" ? "md:flex-row-reverse" : "md:flex-row"
+const imageRotation = imagePosition === "right" ? "lg:rotate-2" : ""
+---
+
+<section class={`${sectionBg} px-4 py-16 md:py-12 lg:py-18 xl:py-4 2xl:px-0`}>
+    <div class={`mx-auto flex max-w-7xl flex-col items-center gap-8 lg:gap-14 xl:h-[90vh] xl:max-h-${maxHeight}`}>
+        <h2 class={`${titleColor} text-center text-3xl font-black tracking-wide uppercase md:hidden`}>
+            {title}
+        </h2>
+
+        <div class={`flex w-full flex-col items-center gap-6 ${flexDirection} md:justify-between lg:gap-12 xl:h-full xl:items-center`}>
+            <img
+                src={imageSrc}
+                alt={imageAlt}
+                class={`w-full max-w-96 rounded-lg transition-transform duration-300 hover:scale-105 hover:rotate-2 md:max-w-80 lg:max-w-100 ${imageRotation} xl:max-w-110 2xl:max-w-120`}
+            />
+
+            <div class={`${textColor} flex max-w-175 flex-col gap-4 lg:text-lg`}>
+                <h2 class={`${titleColor} hidden text-3xl lg:text-4xl lg:mb-2 xl:text-5xl font-black tracking-wide uppercase md:block`}>
+                    {title}
+                </h2>
+                <slot />
+            </div>
+        </div>
+    </div>
+</section>

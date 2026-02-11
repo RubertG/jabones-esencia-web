@@ -1,0 +1,42 @@
+---
+interface ImageItem {
+    src: string
+    alt: string
+    classes: string
+}
+
+interface Props {
+    title: string
+    images: ImageItem[]
+}
+
+const { title, images } = Astro.props
+---
+
+<section class="mx-auto max-w-7xl px-4 py-10 pb-18 lg:pt-18 lg:pb-24 xl:h-[90vh] xl:max-h-190 xl:pt-6 xl:pb-18 2xl:px-0">
+    <h1 class="text-secondary-800 block text-center text-3xl font-black tracking-wide uppercase md:hidden">
+        {title}
+    </h1>
+
+    <div class="mt-12 flex flex-col items-center gap-12 md:mt-0 md:flex-row md:gap-16 lg:gap-20 xl:h-full xl:items-center xl:justify-between">
+        <div class="relative mx-auto aspect-square w-full max-w-60 md:ml-10 md:max-w-40 lg:ml-20 lg:max-w-70 xl:mx-auto 2xl:max-w-83">
+            {
+                images.map(({ src, alt, classes }, idx) => (
+                    <img
+                        src={src}
+                        alt={alt}
+                        class={`absolute bottom-0 left-1/2 aspect-square w-full rounded-lg object-cover shadow-xl transition-transform duration-300 ${classes} hover:-translate-y-1.5 hover:scale-105`}
+                        style={`z-index: ${10 + idx};`}
+                    />
+                ))
+            }
+        </div>
+
+        <div class="text-word-950 flex max-w-175 flex-col gap-4 lg:text-lg">
+            <h2 class="text-secondary-800 hidden text-3xl font-black tracking-wide uppercase md:block lg:mb-2 lg:text-4xl xl:text-5xl">
+                {title}
+            </h2>
+            <slot />
+        </div>
+    </div>
+</section>

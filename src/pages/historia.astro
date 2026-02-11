@@ -1,16 +1,20 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro"
+import HeroSection from "@components/about/HeroSection.astro"
+import StorySection from "@components/about/StorySection.astro"
 import Soap1 from "@assets/about-us/jabon-calendula.jpeg"
 import Soap2 from "@assets/about-us/jabon-curcuma.png"
 import Soap3 from "@assets/about-us/jabon-arroz.jpeg"
 import Family from "@assets/about-us/familia.jpeg"
+import SoapAndFamily from "@assets/about-us/jabones-familia.png"
+import Realization from "@assets/about-us/realizacion.png"
 
 export const prerender = true
 const title = "Nuestra Historia - Jabones Esencia Serena"
 const description =
     "Descubre la historia detrás de Jabones Esencia Serena, una marca familiar dedicada a crear jabones artesanales con amor y propósito. Conoce cómo comenzó nuestro viaje y la inspiración que nos impulsa a ofrecer productos naturales y de alta calidad."
 
-const images = [
+const heroImages = [
     {
         src: Soap2.src,
         alt: "Jabón de cúrcuma - Jabones Esencia Serena",
@@ -30,61 +34,78 @@ const images = [
 ---
 
 <BaseLayout title={title} description={description}>
-    <section class="mx-auto max-w-7xl px-4 py-10 pb-18 lg:pt-18 lg:pb-24 xl:h-[90vh] xl:max-h-190 xl:pt-6 xl:pb-18 2xl:px-0">
-        <h1 class="text-secondary-800 block text-center text-3xl font-black tracking-wide uppercase md:hidden xl:text-4xl">Nuestra Historia</h1>
+    <HeroSection title="Nuestra Historia" images={heroImages}>
+        <p>
+            <span class="font-bold tracking-wide uppercase">Esencia Serena</span> nace de un corazón lleno de amor, memoria y propósito. Detrás de cada jabón hay
+            una historia de regreso al origen, de manos que recuerdan lo aprendido en la juventud y de un sueño que nunca dejó de latir.
+        </p>
 
-        <div class="mt-12 flex flex-col items-center gap-12 md:mt-0 md:flex-row md:gap-16 lg:gap-20 xl:h-full xl:items-center xl:justify-between">
-            <div class="relative mx-auto aspect-square w-full max-w-60 md:ml-10 md:max-w-40 lg:ml-20 lg:max-w-70 xl:mx-auto 2xl:max-w-83">
-                {
-                    images.map(({ src, alt, classes }, idx) => (
-                        <img
-                            src={src}
-                            alt={alt}
-                            class={`absolute bottom-0 left-1/2 aspect-square w-full rounded-lg object-cover shadow-xl transition-transform duration-300 ${classes} z-${10 + idx} hover:-translate-y-1.5 hover:scale-105`}
-                            style={`z-index: ${10 + idx};`}
-                        />
-                    ))
-                }
-            </div>
+        <p>
+            A los 40 años, retomo la esencia de mis primeros pasos en la elaboración de jabones artesanales, una práctica que comenzó como un acto de cuidado
+            para mi familia y para quienes confiaban en mis fórmulas. Hoy vuelvo a ese camino con más conciencia, más estudio y una motivación aún más profunda.
+        </p>
+    </HeroSection>
 
-            <div class="text-word-950 flex max-w-175 flex-col gap-4 lg:text-lg">
-                <h2 class="text-secondary-800 hidden text-3xl font-black tracking-wide uppercase md:block xl:text-4xl">Nuestra Historia</h2>
-                <p>
-                    <span class="font-bold tracking-wide uppercase">Esencia Serena</span> nace de un corazón lleno de amor, memoria y propósito. Detrás de cada jabón
-                    hay una historia de regreso al origen, de manos que recuerdan lo aprendido en la juventud y de un sueño que nunca dejó de latir.
-                </p>
+    <StorySection title="Con alma y amor" imageSrc={Family.src} imageAlt="Familia - Jabones Esencia Serena" bgColor="secondary" imagePosition="right">
+        <p>
+            Soy madre de dos hijas maravillosas, esposa, ama de casa y trabajadora. Ellas son la razón que me impulsa a crear, a reinventarme y a demostrar que
+            siempre es posible empezar de nuevo, con <span class="font-bold tracking-wide uppercase">dedicación y amor</span>.
+        </p>
+        <p>
+            Quiero que mis hijas vean en mí el ejemplo de una mujer que lucha, que se supera y que <span class="font-bold tracking-wide uppercase"
+                >construye con sus manos algo verdadero</span
+            >. Cada jabón refleja ese esfuerzo, el respeto por la piel y el compromiso con hacer las cosas bien, desde el origen.
+        </p>
+    </StorySection>
 
-                <p>
-                    A los 40 años, retomo la esencia de mis primeros pasos en la elaboración de jabones artesanales, una práctica que comenzó como un acto de
-                    cuidado para mi familia y para quienes confiaban en mis fórmulas. Hoy vuelvo a ese camino con más conciencia, más estudio y una motivación
-                    aún más profunda.
-                </p>
-            </div>
-        </div>
-    </section>
+    <StorySection
+        title="Más que jabones"
+        imageSrc={SoapAndFamily.src}
+        imageAlt="Jabones y familia - Jabones Esencia Serena"
+        imagePosition="left"
+        maxHeight="198"
+    >
+        <p>
+            <span class="font-bold tracking-wide uppercase">Esencia Serena</span> no es solo una marca: es un tributo al cuidado femenino y al bienestar en todas
+            sus etapas. Acompañamos a las mamás que buscan nutrirse y sanar, a las adolescentes que comienzan a descubrir su piel y a cada persona que desea sentirse
+            limpia, fuerte y en armonía con su esencia.
+        </p>
 
-    <section class="bg-secondary-600 px-4 py-16 md:py-12 lg:py-18 xl:py-4">
-        <div class="mx-auto max-w-7xl flex flex-col items-center gap-8 lg:gap-14 xl:h-[90vh] xl:max-h-190">
-            <h2 class="text-word-50 text-center text-3xl font-black tracking-wide uppercase xl:text-4xl md:hidden">
-                Con alma y amor
-            </h2>
+        <p>Nuestros productos están pensados para cuidar, reconectar y respetar lo más valioso: la piel y la naturaleza.</p>
+    </StorySection>
 
-            <div class="flex flex-col w-full md:flex-row-reverse items-center md:justify-between gap-6 lg:gap-12 xl:h-full xl:items-center">
-                <img src={Family.src} alt="Familia - Jabones Esencia Serena" class="w-full max-w-96 rounded-lg transition-transform duration-300 hover:scale-105 hover:rotate-2 md:max-w-80 lg:max-w-100 xl:max-w-110 2xl:max-w-120 lg:rotate-2" />
+    <StorySection
+        title="Hecho con conciencia"
+        imageSrc={Realization.src}
+        imageAlt="Realización - Jabones Esencia Serena"
+        bgColor="secondary"
+        imagePosition="right"
+    >
+        <p>
+            Elaboramos nuestros jabones en casa, utilizando <span class="font-bold tracking-wide uppercase">ingredientes naturales</span> y <span
+                class="font-bold tracking-wide uppercase">materiales biodegradables</span
+            >, con fórmulas diseñadas para ser suaves, conscientes y respetuosas con el entorno.
+        </p>
+        <p>
+            Cada proceso está lleno de cariño y dedicación, y cuento con el apoyo constante de mi esposo, quien me acompaña en cada paso de este emprendimiento
+            hecho con amor.
+        </p>
+    </StorySection>
 
-                <div class="text-word-50 flex max-w-175 flex-col gap-4 lg:text-lg">
-                    <h2 class="text-word-50 text-3xl font-black tracking-wide uppercase xl:text-4xl hidden md:block">
-                        Con alma y amor
-                    </h2>
-                    <p>
-                        Soy madre de dos hijas maravillosas, esposa, ama de casa y trabajadora.
-                        Ellas son la razón que me impulsa a crear, a reinventarme y a demostrar que siempre es posible empezar de nuevo, con <span class="font-bold tracking-wide uppercase">dedicación y amor</span>.
-                    </p>
-                    <p>
-                        Quiero que mis hijas vean en mí el ejemplo de una mujer que lucha, que se supera y que <span class="font-bold tracking-wide uppercase">construye con sus manos algo verdadero</span>. Cada jabón refleja ese esfuerzo, el respeto por la piel y el compromiso con hacer las cosas bien, desde el origen.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <StorySection title="En familia" imageSrc={Family.src} imageAlt="Familia - Jabones Esencia Serena" imagePosition="left" maxHeight="198">
+        <p>
+            Mis hijas también forman parte viva de <span class="font-bold tracking-wide uppercase">Esencia Serena</span>. Luna, con su alegría y creatividad,
+            aporta color y espontaneidad; Marianita, con su delicadeza y atención al detalle, deja su huella en cada diseño.
+        </p>
+
+        <p>
+            Nuestros productos están pensados para cuidar, reconectar y respetar lo más valioso: la piel y la naturaleza. Ellas ponen su esencia y yo pongo la
+            serenidad. Juntos, como familia, no solo hacemos jabones:
+        </p>
+
+        <p class="leading-snug font-bold">
+            Creamos legado. <br />
+            Creamos Esencia Serena. 🌿
+        </p>
+    </StorySection>
 </BaseLayout>

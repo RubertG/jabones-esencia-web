@@ -44,7 +44,9 @@ const classes = {
 const textClass = computed(() => (props.type !== "colorless" ? classes[props.type].text[props.version] : ""))
 const decorationClass = computed(() => (props.type !== "colorless" ? classes[props.type].decoration[props.version] : ""))
 
-const anchorClass = computed(() => [textClass.value, "inline-flex relative group justify-center items-center gap-1.5", (props.class ?? "")].filter(Boolean).join(" "))
+const anchorClass = computed(() =>
+    [textClass.value, "inline-flex relative group justify-center items-center gap-1.5", props.class ?? ""].filter(Boolean).join(" ")
+)
 
 const decoClass = computed(() =>
     [decorationClass.value, "absolute bottom-0 left-0 w-0 h-px group-hover:w-full transition-all rounded-full duration-300", props.decorationClass ?? ""]
